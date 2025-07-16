@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #111;
+  color: #eee;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.03), transparent 40%) center center,
+              radial-gradient(circle, rgba(255,255,255,0.03), transparent 40%) left top,
+              radial-gradient(circle, rgba(255,255,255,0.03), transparent 40%) right bottom;
+  background-size: 400px 400px;
+  animation: animateBackground 60s linear infinite;
+  z-index: -1;
+}
+
+@keyframes animateBackground {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.nav-bar {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.menu-container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center; /* centraliza o botão do menu */
+}
+
+.menu-toggle {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.menu-content {
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+  border-radius: 8px;
+  position: absolute;
+  top: 50px; /* abaixo do botão */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 280px;
+  z-index: 100;
+  text-align: center;
+}
+
+.menu-content button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 100%;
+}
+
+.menu-content button:hover {
+  background-color: #444;
+}
+
+.nav-logo {
+  position: absolute;
+  right: 1rem;
+  height: 40px;
+  width: auto;
+  user-select: none;
+  cursor: default;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 102;
+}
+
+.container-wrapper {
+  max-width: 960px;
+  margin: 2rem auto;
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.side-image {
+  height: auto;
+  max-height: 400px;
+  width: 150px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.container {
+  flex: 1;
+}
+
+.titulo {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #f0f0f0;
+}
+
+.card {
+  background-color: #1c1c1c;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card h2 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+}
+
+input,
+select {
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #43a047;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #111;
+  color: #eee;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-content {
+  background: linear-gradient(145deg, #222426, #1a1c1d);
+  border-radius: 16px;
+  padding: 2.5rem 3rem;
+  width: 360px;
+  max-width: 90%;
+  box-shadow:
+    0 0 15px rgba(0, 255, 128, 0.3),
+    inset 0 0 10px rgba(0, 255, 128, 0.1);
+  color: #eee;
+  text-align: center;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  user-select: none;
+}
+
+.modal-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.8rem;
+  color: #a4ffaf;
+  text-shadow: 0 0 5px #00ff72;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.4rem;
+  border-radius: 12px;
+  border: 1.5px solid #333;
+  background-color: #121313;
+  color: #cde9ca;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  font-weight: 400;
+  box-shadow: inset 2px 2px 5px #0d0e0d,
+              inset -2px -2px 5px #1e201e;
+}
+
+.modal-content input::placeholder {
+  color: #627b5d;
+  font-weight: 300;
+}
+
+.modal-content input:focus {
+  outline: none;
+  border-color: #3eff7d;
+  box-shadow:
+    0 0 8px #00ff88,
+    inset 2px 2px 5px #0d0e0d,
+    inset -2px -2px 5px #1e201e;
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 0.85rem;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #3ad976, #00ff88);
+  color: #121a12;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow:
+    0 4px 8px #00ff88aa,
+    inset 0 -3px 8px #0bb05f;
+  transition: background 0.4s, transform 0.2s;
+  user-select: none;
+}
+
+.modal-content button:hover {
+  background: linear-gradient(135deg, #00ff88, #3ad976);
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 14px #00ffbbcc,
+    inset 0 -3px 8px #0bb05f;
+}
+
+.modal-content button:active {
+  transform: translateY(0);
+  box-shadow:
+    0 3px 6px #00ff8855,
+    inset 0 -1px 3px #0bb05f;
+}
+
+.modal-content p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #8bd598;
+  user-select: text;
+}
+
+.modal-content p a {
+  color: #a3ffa3;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.modal-content p a:hover {
+  color: #50ff50;
+  text-decoration: underline;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#main-content {
+  padding: 2rem;
+  max-width: 960px;
+  margin: 3rem auto;
+  text-align: center;
+}

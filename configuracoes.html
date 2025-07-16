@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Configurações</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="configuracoes.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+
+</head>
+<body>
+  <a href="../index.html" class="botao-voltar">← Voltar</a>
+
+  <div class="container">
+    <h1>Configurações</h1>
+
+    <div class="card">
+      <h2>Gerenciar Dados</h2>
+      <button onclick="exportarDados()">📤 Exportar Dados (JSON)</button>
+      <button onclick="gerarPDF()">📄 Exportar Dados (PDF)</button>
+      <button onclick="resetarDados()">🗑️ Resetar Todos os Dados</button>
+      <button id="btn-perfil" type="button">👤 Perfil</button>
+    </div>
+
+    <div class="card">
+      <h2>Preferências (em breve)</h2>
+      <p>Opções de idioma, notificações e integração serão adicionadas futuramente.</p>
+    </div>
+  </div>
+
+  <!-- Modal Perfil -->
+  <div id="modal-perfil" class="hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div>
+      <h2 id="modalTitle">Meu Perfil</h2>
+      
+      <div id="perfil-dados">
+        <p><strong>Usuário:</strong> <span id="perfil-usuario"></span></p>
+        <p><strong>E-mail:</strong> <span id="perfil-email"></span></p>
+        <p><strong>Idade:</strong> <span id="perfil-idade"></span></p>
+      </div>
+      
+      <form id="perfil-form" class="hidden" novalidate>
+        <input type="text" id="input-usuario" required placeholder="Usuário" disabled />
+        <input type="email" id="input-email" required placeholder="E-mail" disabled />
+        <input type="number" id="input-idade" required min="1" placeholder="Idade" disabled />
+      </form>
+      
+      <div>
+        <button id="btn-editar" type="button">Editar</button>
+        <button id="btn-salvar" type="button" class="hidden">Salvar</button>
+        <button id="btn-fechar" type="button">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="configuracoes.js"></script>
+</body>
+</html>

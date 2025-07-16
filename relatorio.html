@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Relatório Financeiro</title>
+  <link rel="stylesheet" href="relatorio.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="relatorio.js"></script>
+  <link rel="icon" href="../logo.png" type="image/png">
+</head>
+<body>
+  <h1>Resumo Financeiro</h1>
+
+  <div class="select-container">
+    <select id="tipo-relatorio" onchange="trocarRelatorio()">
+      <option value="resumo">Resumo Geral</option>
+      <option value="categorias">Gastos por Categoria</option>
+      <option value="mensal">Gastos por Mês</option>
+      <option value="linha">Gastos ao Longo do Tempo</option>
+      <option value="banco">Gastos por Banco/Conta</option>
+      <option value="ganhos">Distribuição de Ganhos Extras</option>
+      <option value="meta">Progresso das Metas</option>
+      <option value="alerta">Alerta de Gastos</option>
+      <option value="estrategias">Estratégias</option>
+    </select>
+  </div>
+
+  <!-- Resumo Geral -->
+  <div class="card report-section active" id="relatorio-resumo">
+    <div class="summary-item" id="total-ganhos"></div>
+    <div class="summary-item" id="total-gasto"></div>
+    <div class="summary-item" id="categoria-mais-gasta"></div>
+    <div class="summary-item" id="media-diaria"></div>
+    <div class="summary-item" id="saldo-final"></div>
+    <div class="summary-item" id="previsao-economia"></div>
+  </div>
+
+  <!-- Gastos por Categoria -->
+  <div class="card report-section" id="relatorio-categorias">
+    <h2>Gastos por Categoria</h2>
+    <canvas id="graficoCategorias"></canvas>
+  </div>
+
+  <!-- Gastos por Mês -->
+  <div class="card report-section" id="relatorio-mensal">
+    <h2>Gastos por Mês</h2>
+    <canvas id="graficoMensal"></canvas>
+  </div>
+
+  <!-- Gastos ao Longo do Tempo -->
+  <div class="card report-section" id="relatorio-linha">
+    <h2>Gastos ao Longo do Tempo</h2>
+    <canvas id="graficoLinha"></canvas>
+  </div>
+
+  <!-- Gastos por Banco/Conta -->
+  <div class="card report-section" id="relatorio-banco">
+    <h2>Gastos por Banco/Conta</h2>
+    <canvas id="graficoBanco"></canvas>
+  </div>
+
+  <!-- Distribuição de Ganhos Extras -->
+  <div class="card report-section" id="relatorio-ganhos">
+    <h2>Distribuição de Ganhos Extras</h2>
+    <canvas id="graficoGanhos"></canvas>
+  </div>
+
+  <!-- Progresso das Metas -->
+  <div class="card report-section" id="relatorio-meta">
+    <h2>Progresso das Metas Financeiras</h2>
+    <canvas id="graficoMeta"></canvas>
+  </div>
+
+  <!-- Alerta de Gastos -->
+  <div class="card report-section" id="relatorio-alerta">
+    <p class="alert" id="mensagem-alerta">Seus gastos ultrapassaram 80% da sua renda!</p>
+  </div>
+
+  <!-- Estratégias -->
+  <div class="card report-section" id="relatorio-estrategias">
+    <h2>Estratégias Financeiras</h2>
+    <ul class="strategies" id="estrategias-list"></ul>
+  </div>
+
+ <a href="../index.html" class="botao-voltar">← Voltar</a>
+
+
+</body>
+</html>

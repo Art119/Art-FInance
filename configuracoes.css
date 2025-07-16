@@ -1,0 +1,270 @@
+/* Reset e fontes */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background: #111;
+  color: #eee;
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.03), transparent 40%) center center,
+              radial-gradient(circle, rgba(255,255,255,0.03), transparent 40%) left top,
+              radial-gradient(circle, rgba(255,255,255,0.03), transparent 40%) right bottom;
+  background-size: 400px 400px;
+  animation: animateBackground 60s linear infinite;
+  z-index: -1;
+}
+@keyframes animateBackground {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #4caf50;
+}
+.card {
+  background-color: #1c1c1c;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.card h2 {
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.card button {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.card button:hover {
+  background-color: #43a047;
+}
+.botao-voltar {
+  display: inline-block;
+  background-color: #4caf50;
+  color: white;
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+}
+.botao-voltar:hover {
+  background-color: #43a047;
+}
+
+/* Reset e fontes */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background: #111;
+  color: #eee;
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.03), transparent 40%) center center,
+              radial-gradient(circle, rgba(255,255,255,0.03), transparent 40%) left top,
+              radial-gradient(circle, rgba(255,255,255,0.03), transparent 40%) right bottom;
+  background-size: 400px 400px;
+  animation: animateBackground 60s linear infinite;
+  z-index: -1;
+}
+@keyframes animateBackground {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #4caf50;
+}
+.card {
+  background-color: #1c1c1c;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.card h2 {
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.card button {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.card button:hover {
+  background-color: #43a047;
+}
+.botao-voltar {
+  display: inline-block;
+  background-color: #4caf50;
+  color: white;
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+}
+
+/* MODAL PERFIL */
+#modal-perfil.hidden {
+  display: none;
+}
+#modal-perfil {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+#modal-perfil > div {
+  background: #1c1c1c;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 320px;
+  color: #eee;
+  position: relative;
+  box-shadow: 0 0 15px #4caf50;
+  display: flex;
+  flex-direction: column;
+}
+#modal-perfil h2 {
+  margin-bottom: 1rem;
+  color: #4caf50;
+  text-align: center;
+}
+#perfil-dados p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+#perfil-dados strong {
+  color: #a4ffaf;
+}
+#perfil-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+#perfil-form input {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: none;
+  background: #2a2a2a;
+  color: #eee;
+  font-size: 1rem;
+  box-shadow: inset 2px 2px 5px #0d0e0d,
+              inset -2px -2px 5px #1e201e;
+  transition: border-color 0.3s ease;
+}
+#perfil-form input:focus {
+  outline: none;
+  border: 2px solid #4caf50;
+  box-shadow: 0 0 10px #4caf50;
+}
+#modal-perfil button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.3s;
+  border: none;
+  color: #121a12;
+}
+#btn-editar {
+  background-color: #4caf50;
+}
+#btn-editar:hover {
+  background-color: #43a047;
+}
+#btn-salvar {
+  background-color: #43a047;
+  color: #121a12;
+}
+#btn-salvar:hover {
+  background-color: #3a8b3a;
+}
+#btn-fechar {
+  background-color: #a33a3a;
+  color: white;
+}
+#btn-fechar:hover {
+  background-color: #7e2a2a;
+}
+#modal-perfil button + button {
+  margin-left: 0.5rem;
+}
+/* Flex container for buttons */
+#modal-perfil > div > div:last-child {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}

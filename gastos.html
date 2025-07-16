@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Relatório Detalhado de Gastos</title>
+  <link rel="stylesheet" href="gastos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script defer src="gastos.js"></script>
+  <link rel="icon" href="../logo.png" type="image/png">
+</head>
+<body>
+  <h1>Relatório Detalhado de Gastos</h1>
+
+  <div class="filter-container">
+    <label for="filtro-categoria">Filtrar por Categoria:</label>
+    <select id="filtro-categoria" onchange="filtrarGastos()">
+      <option value="todas">Todas</option>
+      <option value="Alimentação">Alimentação</option>
+      <option value="Transporte">Transporte</option>
+      <option value="Lazer">Lazer</option>
+      <option value="Outros">Outros</option>
+    </select>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th>Observação</th>
+          <th>Valor (R$)</th>
+          <th>Data</th>
+          <th>Banco/Conta</th>
+          <th>Categoria</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="tabela-gastos">
+        <!-- Dados vão aqui -->
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination">
+    <button id="prev-page" onclick="paginaAnterior()" disabled>Anterior</button>
+    <span id="pagina-atual">1</span> / <span id="total-paginas">1</span>
+    <button id="next-page" onclick="proximaPagina()" disabled>Próxima</button>
+      <a href="../index.html" onclick="voltar()"><button>voltar</button>
+  </div>
+</body>
+</html>

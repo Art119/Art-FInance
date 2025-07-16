@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  
+
+<div id="login-modal" class="modal">
+    <div class="modal-content">
+      <h2>Login</h2>
+      <form id="login-form">
+        <input type="text" id="login-usuario" placeholder="Usuário" required autocomplete="username" />
+        <input type="password" id="login-senha" placeholder="Senha" required autocomplete="current-password" />
+        <button type="submit">Entrar</button>
+      </form>
+      <p>Não tem conta? <a href="#" id="show-register">Criar conta</a></p>
+    </div>
+  </div>
+
+  <!-- Modal Cadastro -->
+  <div id="register-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Criar Conta</h2>
+      <form id="register-form">
+        <input type="text" id="reg-usuario" placeholder="Usuário" required autocomplete="username" />
+        <input type="email" id="reg-email" placeholder="E-mail" required autocomplete="email" />
+        <input type="number" id="reg-idade" placeholder="Idade" min="1" required />
+        <input type="password" id="reg-senha" placeholder="Senha" required autocomplete="new-password" />
+        <button type="submit">Registrar</button>
+      </form>
+      <p>Já tem conta? <a href="#" id="show-login">Entrar</a></p>
+    </div>
+  </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Art financer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="nav-bar">
+    <img src="logo2.png" alt="Logo" class="nav-logo" />
+    <div class="menu-container">
+           
+
+
+
+      <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+
+      <div id="menu-content" class="menu-content hidden" style="min-width: 320px;">
+        <button onclick="showSection('entrada')">Entrada</button>
+        <a href="configuracoes/configuracoes.html"><button>Configurações</button></a>
+        <a href="gastos/gastos.html"><button>Gastos Gerais</button></a>
+        <a href="relatorios/relatorio.html"><button>Resumo Geral</button></a>
+      </div>
+
+    </div>
+  </header>
+  
+
+  <!-- Nova seção Entrada: centralizada e com todos os adicionar -->
+  <div class="card section hidden" id="entrada" style="max-width: 400px; margin: 2rem auto;">
+    <h2 style="text-align: center; margin-bottom: 1.5rem;">Adicionar</h2>
+    <div style="display: flex; flex-direction: column; gap: 1rem; justify-content: center; align-items: center;">
+      <button onclick="showSection('despesa')">Adicionar Despesa</button>
+      <button onclick="showSection('salario')">Adicionar Salário</button>
+      <button onclick="showSection('meta')">Adicionar Meta</button>
+      <button onclick="showSection('ganhos')">Ganhos Extras</button>
+    </div>
+  </div>
+
+  <!-- Wrapper que alinha a imagem e o container lado a lado -->
+  <div class="container-wrapper" style="max-width: 960px; margin: 2rem auto; display: flex; gap: 1rem; align-items: stretch;">
+    <img src="logo2.png" alt="Imagem lado esquerdo" class="side-image" style="height: auto; max-height: 200px; width: 75x; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);" />
+    <div class="container" style="flex: 1;"> <br/><br/><br/>
+      <h1 class="titulo">Bem-vindo ao seu Controle Financeiro</h1>
+
+      <!-- Seção Despesa -->
+      <div class="card section hidden" id="despesa">
+        <h2>Adicionar Despesa</h2>
+        <form id="expense-form" class="form-grid">
+          <input type="text" id="descricao" placeholder="Nome da Despesa" required />
+          <input type="text" id="observacao" placeholder="Observação (opcional)" />
+          <input type="number" id="valor" placeholder="Valor (R$)" step="0.01" min="0" required />
+          <input type="date" id="data" required />
+          <input type="text" id="banco" placeholder="Banco ou Conta" required />
+          <select id="categoria" required>
+            <option value="Alimentação">Alimentação</option>
+            <option value="Transporte">Transporte</option>
+            <option value="Lazer">Lazer</option>
+            <option value="Outros">Outros</option>
+          </select>
+          <button type="submit">Adicionar</button>
+        </form>
+      </div>
+
+      <!-- Seção Salário -->
+      <div class="card section hidden" id="salario">
+        <h2>Adicionar Salário</h2>
+        <input type="number" id="salario-valor" placeholder="Valor do Salário (R$)" step="0.01" min="0" />
+        <button id="salario-salvar">Salvar</button>
+      </div>
+
+      <!-- Seção Meta -->
+      <div class="card section hidden" id="meta">
+        <h2>Adicionar Meta Financeira</h2>
+        <input type="text" id="meta-nome" placeholder="Nome da Meta" />
+        <input type="number" id="meta-valor" placeholder="Valor da Meta (R$)" step="0.01" min="0" />
+        <button id="meta-salvar">Salvar Meta</button>
+      </div>
+
+      <!-- Seção Ganhos Extras -->
+      <div class="card section hidden" id="ganhos">
+        <h2>Adicionar Ganhos Extras</h2>
+        <input type="text" id="ganho-descricao" placeholder="Descrição do ganho" />
+        <input type="number" id="ganho-valor" placeholder="Valor (R$)" step="0.01" min="0" />
+        <button id="ganho-salvar">Salvar Ganho</button>
+      </div>
+
+      <!-- Seção Configurações -->
+      <div class="card section hidden" id="config">
+        <h2>Configurações</h2>
+        <p>Aqui você poderá futuramente ajustar preferências, exportar dados e muito mais.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Menu e navegação entre seções
+    function toggleMenu() {
+      document.getElementById('menu-content').classList.toggle('hidden');
+    }
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+      document.getElementById('menu-content').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
